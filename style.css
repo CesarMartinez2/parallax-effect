@@ -1,0 +1,165 @@
+:root {
+    --clr-light:#fafafa;
+    --clr-dark:#0a0a0a; 
+    --clr-gray:#222222;
+}
+   
+html {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+.hidden-fade {
+    opacity: 0;
+    transition: 1000ms;
+}
+
+.hidden-slide {
+    opacity: 0;
+    transition: 1000ms;
+}
+
+.show-fade {
+    opacity: 1;
+}
+
+.show-slide-up {
+    opacity: 1;
+    animation-name: loadslide;
+    animation-duration: 1000ms;
+}
+
+@keyframes loadslide {
+    from {opacity: 0; transform: translateY(225%)}
+    to {opacity: 1; transform: translateY(157%)}
+}
+
+body {
+    font-family: roboto, sans-serif;
+    min-width: 26.25rem;
+}
+
+p {
+    letter-spacing: 0.06rem;
+    line-height: 1.75rem;
+}
+
+body {
+    color: var(--clr-dark);
+    margin: 0;
+}
+
+.container {
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    perspective: 10px;
+    width: 100%;
+    margin: auto;
+}
+
+.hero {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100vh;
+    transform-style: preserve-3d;
+    padding-top: 5rem;
+    z-index: -5;
+} 
+
+.title {
+    position: absolute;
+    font-size: 3.5rem;
+    letter-spacing: 0.25rem;
+    bottom: 80%;
+    transform: translateZ(-10px) scale(2);
+    background: linear-gradient(var(--clr-gray), transparent);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+@media (min-width: 41.625rem) {
+    @keyframes loadslide {
+        from {opacity: 0; transform: translateY(425%)}
+        to {opacity: 1; transform: translateY(290%)}
+    }
+}
+
+
+@media (min-width: 72.75rem) {
+    .title {
+        font-size: 6.5rem;
+    }
+
+    @keyframes loadslide {
+        from {opacity: 0; transform: translateY(225%)}
+        to {opacity: 1; transform: translateY(180%)}
+    }
+}
+
+.button {
+    position: absolute;
+    font-size: 1.5rem;
+    bottom: 18%;
+    transform: translateZ(-1px) scale(1.25);
+    border: 3px solid var(--clr-light);
+    border-radius: 0.5rem;
+    padding: 1rem 3rem;
+    color: var(--clr-light);
+    font-weight: 700;
+    letter-spacing: 0.08rem;
+    transition: 500ms;
+}
+
+.button:hover {
+    color: var(--clr-dark);
+    background-color: var(--clr-light);
+}
+
+.content {
+    position: relative;
+    padding-top: 5rem;
+    background-color: var(--clr-light);
+}
+
+.content::before,
+.content::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 10rem;
+    top: -10rem;
+    background: linear-gradient(to bottom, transparent, var(--clr-light));
+}
+
+.content::after {
+    top: -5rem;
+}
+
+.intro-text {
+    width: 90%;
+    max-width: 40rem;
+    margin: auto;
+}
+
+.background {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    transform: translateZ(-10px) scale(2);
+}
+
+.foreground {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    bottom: 5%;
+    transform: translateZ(-2.5px) scale(1.25);
+}
